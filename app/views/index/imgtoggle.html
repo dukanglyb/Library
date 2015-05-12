@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="keywords" content="站长,网页特效,js特效,js脚本,脚本,广告代码,zzjs,zzjs.net,sky,www.zzjs.net,站长特效 网" />
+    <meta name="description" content="www.zzjs.net,站长特效网，站长必备js特效及广告代码。大量高质量js特效，提供高质量广告代码下载,尽在站长特效网" />
+    <title>网页特效 用户体验感很好的图片浏览效果 站长特效网欢迎您。</title>
+</head>
+<body>
+<a href="http://www.zzjs.net/">站长特效网</a>,站长必备的高质量网页特效和广告代码。zzjs.net，站长js特效。<hr>
+<!--欢迎来到站长特效网，我们网站收集大量高质量js特效，提供许多广告代码下载，网址：www.zzjs.net，zzjs@msn.com,用.net打造靓站-->
+<button onclick="Slider.next()">下一张</button>
+<script type="text/javascript">
+    <!--
+    Slider = {
+        isIE : true,
+        m_imageSource : [],
+        m_selIdx : 0,
+        m_direction : 1,
+        m_mainviewer : null,
+        m_delayTimer : null,
+        m_delayTimer1 : null,
+        m_curObj : null,
+        m_tarObj : null,
+        m_inited : false,
+        init : function(id, w, h, w1, h1, p, t, s, source){
+            this.isIE = document.all ? true : false;
+            this.canvasWidth = w;
+            this.canvasHeight = h;
+            this.imageWidth = w1;
+            this.imageHeight = h1;
+            this.m_percent = p;
+            this.m_top = t;
+            this.m_spaceWidth = s;
+            this.writeCanvas(id);
+            for(var i=0;i<source.length;i++)
+            {//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+                this.container.innerHTML += '<img src="'+source[i]+'" border="0" style="'+(this.isIE?'filter:alpha(opacity=50)':'opacity:0.5')+';width:'+w1+'px;height:'+h1+'px;position:absolute;left:'+(i*w1+i*this.m_spaceWidth)+'px;top:'+this.m_top+'px;" index="'+i+'"/>';
+            }
+            this.m_mainviewer = this.container.firstChild.cloneNode(true);
+            this.bind();
+            this.start();
+        },
+        writeCanvas : function(id)
+        {//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+            document.write('<div id="'+id+'" style="width:'+this.canvasWidth+'px;height:'+this.canvasHeight+'px;position:relative;overflow:hidden;background-color:black"></div>');
+            this.container = document.getElementById(id);
+        },
+        bind : function(obj, evt, fun){
+            var obj = this.container;
+            for(var i=0;i<obj.childNodes.length;i++)
+            {
+                this.attachEvent(this.container.childNodes[i], "mouseover", this.mouseover);
+                this.attachEvent(this.container.childNodes[i], "mouseout" , this.mouseout);
+                this.attachEvent(this.container.childNodes[i], "click" , this.click);
+            }//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+        },
+        attachEvent : function(obj, evt, fun){
+            if (Slider.isIE)
+            {
+                obj.attachEvent("on"+evt, fun)
+            }else
+            {
+                obj.addEventListener(evt, fun, false);
+            }
+        },
+        mouseover : function(e)
+        {
+            if(!e)e=window.event;
+            var obj = e.srcElement || e.target;
+            if (Slider.isIE)
+            {
+                obj.style.filter = "alpha(opacity=80)";
+            }else{
+                obj.style.opacity = "0.8";
+            }
+        },
+        mouseout : function(e)
+        {
+            if(!e)e=window.event;
+            var obj = e.srcElement || e.target;
+            if (Slider.isIE)
+            {
+                obj.style.filter = "alpha(opacity=50)";
+            }else{
+                obj.style.opacity = "0.5";
+            }//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+        },
+        click : function(e)
+        {
+            if(!e)e=window.event;
+            var obj = e.srcElement || e.target;
+            var mobj = Slider.m_mainviewer;
+            Slider.m_selIdx = obj.getAttribute("index");
+            Slider.m_curObj = Slider.m_mainviewer;
+            Slider.m_tarObj = obj;
+            Slider.m_delayTimer = Slider.fadeIn(200,5);
+        },
+        start : function(){
+            var obj = this.m_mainviewer;
+            if (Slider.isIE)
+            {
+                obj.style.filter = "alpha(opacity=100)";
+            }else{
+                obj.style.opacity = "1";
+            }
+            this.container.appendChild(this.m_mainviewer);
+            this.m_mainviewer.style.width = parseInt(this.m_mainviewer.style.width)*(1+this.m_percent)+"px";
+            this.m_mainviewer.style.height = parseInt(this.m_mainviewer.style.height)*(1+this.m_percent)+"px";
+            this.m_curObj = this.container.childNodes[this.m_selIdx];
+            this.m_tarObj = this.m_mainviewer;
+            if(this.m_delayTimer)clearInterval(Slider.m_delayTimer);
+            this.m_delayTimer = this.fadeIn(200,5);
+        },
+        next : function(){
+            var obj = this.container;
+            var mobj = this.m_mainviewer;
+            if(this.m_selIdx == obj.childNodes.length-2)
+            {
+                this.m_direction = -1;
+            }
+            if(this.m_selIdx == 0)
+            {
+                this.m_direction = 1;
+            }
+            Slider.m_curObj = mobj;
+            Slider.m_tarObj = obj.childNodes[this.m_selIdx];
+            this.m_delayTimer = this.fadeIn(200,5);
+            mobj.src = obj.childNodes[this.m_selIdx].src;
+            if(this.m_direction==-1){
+                this.m_selIdx --;
+            }else{
+                this.m_selIdx ++;
+            }
+        },
+        fadeIn : function(aa, ab){
+            var obj = this.container;
+            with(this.m_curObj.style){var t1 = parseInt(left);var t3 = parseInt(width);var t4 = parseInt(height);var t5 = parseInt(top);}
+            if (Slider.m_inited)
+            {
+                var k1 = (t1 - (this.canvasWidth- parseInt(this.m_curObj.style.width))/2)/ab;
+                var k3 = (t3-parseInt(this.m_tarObj.style.width))/ab;
+                var k4 = (t4-parseInt(this.m_tarObj.style.height))/ab;
+                var k5 = (t5 - parseInt(this.m_tarObj.style.top))/ab;
+            }else{
+                var k1 = (t1 - (this.canvasWidth- this.imageWidth*(1+this.m_percent))/2)/ab;
+                var k3 = (t3- this.imageWidth*(1+this.m_percent))/ab;
+                var k4 = (t4 - this.imageHeight*(1+this.m_percent))/ab;
+                var k5 = (this.imageHeight * this.m_percent/2)/ab;
+            }
+            var mobj = this.m_mainviewer;
+            return setInterval(function(){if(ab<1){
+                        clearInterval(Slider.m_delayTimer);
+                        if(Slider.m_inited){
+                            if (!Slider.m_fadein)
+                            {
+                                Slider.m_curObj = obj.childNodes[Slider.m_selIdx];
+                                Slider.m_tarObj = mobj;
+                                mobj.src = obj.childNodes[Slider.m_selIdx].src;
+                                Slider.m_fadein = true;
+                                Slider.m_inited = false;
+                                Slider.m_delayTimer = Slider.fadeIn(200,10);
+                            }else{
+                                Slider.m_fadein = false;
+                                Slider.m_inited = true;
+                            }
+                        }
+                        Slider.m_inited = true;
+                        return;
+                    }
+                        ab--;t1-=k1;t3-=k3;t4-=k4;t5-=k5;
+                        if (Slider.m_fadein)
+                        {
+                            for(var i=0;i<obj.childNodes.length-1;i++)
+                            {
+                                obj.childNodes[i].style.left = (parseInt(t1) + (Slider.imageWidth + Slider.m_spaceWidth)*(i-Slider.m_selIdx))+"px";
+                            }
+                        }//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+                        with(mobj.style){left = t1 + "px";top = t5 + "px";width = t3 + "px";height = t4 + "px";}
+                    }
+                    ,aa/ab)
+        }
+    }
+    Slider.init('aaa',500,400,250,200, 0.5, 100, 20, [
+        "/image/1.jpg",
+        "/image/2.jpg",
+        "/image/3.jpg",
+        "/image/4.jpg",
+        "/image/5.jpg",
+        "/image/1.jpg",
+        "/image/2.jpg",
+        "/image/3.jpg"
+    ]);
+    //-->
+</script>
+</body>
+</html>

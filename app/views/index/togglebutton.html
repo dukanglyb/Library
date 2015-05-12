@@ -1,0 +1,19 @@
+<?php echo $this->getContent(); ?>
+<div class="">
+    显示图标1：<button class="mwui-switch-btn btn"><span change="开" class="off">关</span><input type="hidden" name="show_icon" value="0" /></button>
+    显示顶栏1：<button class="mwui-switch-btn btn"><span change="关">开</span><input type="hidden" name="open_topbar" value="1" /></button>
+    <br />
+    显示图标2：<button class="mwui-switch-btn btn"><span change="OFF">ON</span><input type="hidden" name="show_icon2" value="1" /></button>
+    显示顶栏2：<button class="mwui-switch-btn btn"><span change="ON" class="off">OFF</span><input type="hidden" name="open_topbar2" value="0" /></button>
+    <br />
+    <input type="submit" id="submit" class="btn" value="提交" />
+</div>
+
+<div id="debuger"></div>
+
+
+<?php echo $this->tag->javascriptInclude('js/togglebtn.js'); ?>
+
+<script>
+    require("togglebtn");
+</script>

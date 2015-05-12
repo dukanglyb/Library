@@ -1,0 +1,43 @@
+<!DOCTYPE html><!--语言属性-->
+<html>
+    <head>
+        <!--字符编码-->
+        <meta charset="utf-8">
+        <!--IE 兼容模式-->
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+        <!-- External CSS -->
+        <!--<link rel="stylesheet" href="code-guide.css">-->
+
+        <!-- In-document CSS -->
+        <!--<style>-->
+            <!--/* ... */-->
+        <!--</style>-->
+
+        <!-- JavaScript -->
+        <!--<script src="code-guide.js"></script>-->
+
+
+        <?php echo $this->tag->getTitle(); ?>
+        <?php echo $this->tag->stylesheetLink('dep/bootstrap/css/bootstrap.min.css'); ?>
+        <?php echo $this->tag->stylesheetLink('dep/bootstrap/css/font-awesome.min.css'); ?>
+        <?php echo $this->tag->stylesheetLink('css/base.css'); ?>
+        <link rel="stylesheet/less" type="text/css" href="/css/bdmap.less"/>
+        <!--<?php echo $this->tag->stylesheetLink('css/togglebtn.less'); ?>-->
+        <link rel="stylesheet/less" type="text/css" href="/css/togglebtn.less"/>
+
+        <?php echo $this->tag->javascriptInclude('dep/less/less.min.js'); ?>
+
+        <?php echo $this->tag->javascriptInclude('dep/mod.js'); ?>
+        <?php echo $this->tag->javascriptInclude('dep/jquery/jquery-1.11.2.min.js'); ?>
+        <?php echo $this->tag->javascriptInclude('dep/bootstrap/js/bootstrap.min.js'); ?>
+        <?php echo $this->tag->javascriptInclude('js/comm.js'); ?>
+        <?php echo $this->tag->javascriptInclude('js/utils.js'); ?>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Your invoices">
+        <meta name="author" content="DuKang Team">
+    </head>
+    <body>
+        <?php echo $this->getContent(); ?>
+    </body>
+</html>

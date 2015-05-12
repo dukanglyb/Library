@@ -1,0 +1,47 @@
+<?php echo $this->getContent(); ?>
+<!--百度地图容器-->
+<div class="map">
+    <div class="map-nav">
+        <span>第一步创建地图</span>
+    </div>
+    <div class="mapcontent">
+        <div class="col-md-3 map-left">
+            <div class="map-center">
+                <div class="map-title">1.定位中心点<span class="icon-minus"></span> </div>
+                <div class="map-content">
+                    <ul>
+                        <li>当前城市:<span>永城市</span><a href="#">切换</a> </li>
+                        <li>
+                            <input class="form-control map-form-control" type="text" placeholder="输入地名、大厦快速定位">
+                            <input class="btn map-btn" type="button" value="确定">
+                            <input class="btn map-btn" type="button" value="取消">
+                        </li>
+                        <li>
+                            <input class="form-control map-form-control" type="text" placeholder="输入地名、大厦快速定位">
+                            <input class="btn map-btn" type="button" value="查找">
+                        </li>
+                        <li>当前地图中心点经纬度:</li>
+                        <li>X:<input class="form-control map-form-control" type="text"></li>
+                        <li>Y:<input class="form-control map-form-control" type="text"></li>
+                        <li>当前地图级别:<input class="form-control map-form-control" type="text"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="map-set">
+
+            </div>
+            <div class="map-point">
+
+            </div>
+        </div>
+
+        <div class="col-md-9 map-right" id="baidu_map"></div>
+    </div>
+</div>
+<!--引用百度地图API-->
+<?php echo $this->tag->javascriptInclude('http://api.map.baidu.com/api?v=2.0&ak=9d0547ed7d3226efa7bd75131e75a863'); ?>
+<?php echo $this->tag->javascriptInclude('js/baidumap.js'); ?>
+
+<script>
+    require("baidumap");
+</script>
