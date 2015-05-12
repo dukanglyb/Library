@@ -44,4 +44,6 @@ define('togglebtn', function(require, exports, module) {
     module.exports=fn;
 
     fn.toggle();
+
+    $('#datetimepicker').datetimepicker();
 });
