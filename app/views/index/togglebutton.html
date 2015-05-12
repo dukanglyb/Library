@@ -11,11 +11,12 @@
 
 <div id="debuger"></div>
 
-<input id="datetimepicker" class="form-control" type="text">
+<input id="datetimepicker" class="form-control" type="text" >
 
 
 <?php echo $this->tag->javascriptInclude('js/togglebtn.js'); ?>
 
 <script>
+    require("jquery.datetimepicker");
     require("togglebtn");
 </script>

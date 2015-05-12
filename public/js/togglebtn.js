@@ -45,5 +45,5 @@ define('togglebtn', function(require, exports, module) {
 
     fn.toggle();
 
-    $('#datetimepicker').datetimepicker();
+    $('#datetimepicker').datetimepicker({lang:'ch'});
 });
