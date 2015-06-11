@@ -13,10 +13,13 @@
 
 <input id="datetimepicker" class="form-control" type="text" >
 
+<div class="summernote">summernote</div>
 
 <?php echo $this->tag->javascriptInclude('js/togglebtn.js'); ?>
 
 <script>
     require("jquery.datetimepicker");
+    require('bootstrap');
+    require("summernote");
     require("togglebtn");
 </script>

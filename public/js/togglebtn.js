@@ -46,4 +46,12 @@ define('togglebtn', function(require, exports, module) {
     fn.toggle();
 
     $('#datetimepicker').datetimepicker({lang:'ch'});
+    debugger;
+    $('.summernote').summernote({
+        height: 200,
+        tabsize: 2,
+        codemirror: {
+            theme: 'monokai'
+        }
+    });
 });
