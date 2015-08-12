@@ -18,6 +18,21 @@ $settings = array(
         "formsDir"      => "app/forms/",
         "libraryDir"       => "app/library/",
         "baseUri"       => "/",
+    ),'server' => array(
+        'redis'     => array(
+            'ip'=>'10.10.101.33',
+            'port'=>'6379',
+            'auth'=>'redis'
+        ),
+        'tfs'=>array(
+            'nginx-tfs'=>
+                array(
+                    'ip'=>'localhost',
+                    'port'=>'7500',
+                ),
+            'appkey'=>'tappkey00001',
+            'appid'=>1,
+        )
     ),
     "mysetting" => "the-value"
 );

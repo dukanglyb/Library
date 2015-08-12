@@ -24,4 +24,8 @@ class IndexController extends ControllerBase
     public function togglebuttonAction(){
 
     }
+
+    public function uploadfileAction(){
+
+    }
 }

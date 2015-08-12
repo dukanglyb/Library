@@ -1,0 +1,9 @@
+<form id="file_form" action="http://tfs.com/v1/tfs" method="post" enctype="multipart/form-data">
+    <input type="file" name="myFlie" class="btn" value="请选择文件">
+    <input type="button" id="file_sumbmit" class="btn" value="提交">
+</form>
+
+<?php echo $this->tag->javascriptInclude('js/uploadfile.js'); ?>
+<script>
+    require("uploadfile");
+</script>
